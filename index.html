@@ -35,7 +35,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
         var shooting=0; //variable that computes how many yes's for shooting
-	var resultText = document.getElementById("results-section"); //defining resultText variable
         var defending = 0; //variable that computes how many yes's for defending
 	var shoop=0;
 	//Added variable shoop which was able to compute the percent of answers indicating shooting 
@@ -59,9 +58,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		//everytime dependingAdd is used, total is added by 1
         }
 	function getResults (){ //using getResults function in order to get the results at the end
-	shoop = (shooting / total) * (100); //defining shoop and calculating the percent accordingly of shooting
-	doop = (defending / total) * (100);//defining doop and calculating the percent accordingly of defending
-	window.resultText.innerHTML = "Probability that you are a shooter =" + shoop + "%"+ "<br> Probability you are a defender =" + doop+"%"; //results are displayed in this format with percent of chance that person is shooter and and percent of defender displayed with overall percent
+	 	var resultText = document.getElementById("results-section"); //defining resultText variable
+		shoop = (shooting / total) * (100); //defining shoop and calculating the percent accordingly of shooting
+		doop = (defending / total) * (100);//defining doop and calculating the percent accordingly of defending
+		resultText.innerHTML = "Probability that you are a shooter =" + shoop + "%"+ "<br> Probability you are a defender =" + doop+"%"; //results are displayed in this format with percent of chance that person is shooter and and percent of defender displayed with overall percent
 	
 	}
 	function rewind (){ //function used in order to reset all the variables at the end of the program so it can be ran accurately again
@@ -70,7 +70,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	 shoop=0;
 	 doop=0;
 	 total =0;
-	window.resultText.innerHTML= "";
 
 
 	// every variable is set to 0 succesfully with the reset button
@@ -216,17 +215,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<h1>Results</h1> <!--displays Results in text in the header-->
 	</div>
 	
-      <a href="#results" onclick="getResults();" class="w3-btn w3-grey w3-round"> Click On This Button Each Time You Run the App to Find Out the Results of Whether Who You Are Mostly A Shooter or Defender! </a> <!--button resulting in the results being displayed out, with the functions-->
-	<p id="results-section"></p>.<!--allows the results to be displayed on the page after the button is clicked-->
+      <a href="#upresults" onclick="getResults();" class="w3-btn w3-grey w3-round"> Click On This Button Each Time You Run the App to Find Out the Results of Whether Who You Are Mostly A Shooter or Defender! </a> <!--button resulting in the results being displayed out, with the functions-->
 
-<p> ^^^ Make sure to Press the button above EVERYTIME you run the website again to get updated results ^^^! </p><!--Reminder to click the button everytime you need new Results-->
- 	<a href="#content"   onclick="rewind();"class= "w3-btn w3-grey w3-round"> Home </a> <!--this is the home button which takes the app back to the home page while resetting everything, allowing the app to be run once more with different results-->
 
     	</div>
+<div class="page" id="upresults"> <!--defined the sixth page after page three as class six-->
+	
+	<a href="#content"   onclick="rewind();"class= "w3-btn w3-grey w3-round"> Home </a> <!--this is the home button which takes the app back to the home page while resetting everything, allowing the app to be run once more with different results-->
+	<p id="results-section"></p>.<!--allows the results to be displayed on the page after the button is clicked-->
+	
+</div>	
 	
 </div>
-						    
-								    
+						    								    
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
