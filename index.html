@@ -2,13 +2,13 @@
 <html> 
 <!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
  
-THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+THIS CODE SHOULD NOT BE USED TO OFFICIALLY DETERMINE BASKETBALL PLAYERS
  
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
- 
+Sai Ponnapalli 
+
 Further Information:
 http://cns.utexas.edu/fri
  
@@ -34,44 +34,44 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-        var allergy_count=0;
-        var cold_count = 0;
-	var alpe=0;
-	//Added variable alpe which was able to compute the percent of answers indicating allergy 
-	var colpe=0;
-	//added variable colpe which was able to compute the percent of answers indicting cold
+        var shooting=0; //variable that computes how many yes's for shooting
+        var defending = 0; //variable that computes how many yes's for defending
+	var shoop=0;
+	//Added variable shoop which was able to compute the percent of answers indicating shooting 
+	var doop=0;
+	//added variable doop which was able to compute the percent of answers indicting defending
 	var total =0;
 	//added variable total to count the amount of total responses, used in percent calculations
 	
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		//allergy count variable here is being added by one everytime allergyAdd is called
+        function shootingAdd(){
+            shooting = shooting + 1;
+		//shooting count variable here is being added by one everytime shootingAdd is called
 		total++;
-		//everytime coldAdd is used, total is added by 1
+		//everytime shootingAdd is used, total is added by 1 to shooting
 	}
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
-		//cold count variable here is being added by one everytime coldAdd is called
+        function defendingAdd(){
+            defending = defending + 1;
+		//defending count variable here is being added by one everytime defendingAdd is called
 		total++;
-		//everytime coldAdd is used, total is added by 1
+		//everytime dependingAdd is used, total is added by 1
         }
 	function getResults (){ //using getResults function in order to get the results at the end
 	var resultText = document.getElementById("results-section"); //defining resultText variable
-	alpe = (allergy_count / total) * (100); //defining alpe and calculating the percent accordingly of allergy
-	colpe = (cold_count / total) * (100);//defining colpe and calculating the percent accordingly of cold
-	resultText.innerHTML = "Probability it is allergies =" + alpe + "%"+ "<br> Probability it is a cold =" + colpe+"%"; //results are displayed in this format with percent of allergy and cold displayed in decimal form (ex 0.5 and 0.5 for 50% each), overall percent
+	shoop = (shooting / total) * (100); //defining shoop and calculating the percent accordingly of shooting
+	doop = (defending / total) * (100);//defining doop and calculating the percent accordingly of defending
+	resultText.innerHTML = "Probability that you are a shooter =" + shoop + "%"+ "<br> Probability you are a defender =" + doop+"%"; //results are displayed in this format with percent of chance that person is shooter and and percent of defender displayed with overall percent
 	}
 	function rewind (){ //function used in order to reset all the variables at the end of the program so it can be ran accurately again
-	  allergy_count=0;
-         cold_count = 0;
-	 alpe=0;
-	 colpe=0;
+	  shooting=0;
+         defending = 0;
+	 shoop=0;
+	 doop=0;
 	 total =0;
 
 
-	// every variable is set to 0 succesfully
+	// every variable is set to 0 succesfully with the reset button
 	}
 	
 
@@ -103,18 +103,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Shooting Guard or Defending Center in Basketball?</h1>
 </div>
 	
 <div id="content" class="w3-container">
 	 
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Are you interested in basketball, but wonder what type of a player you are? Do you wonder whether you prefer to defend more or attack more? Answer a few short questions to find out your basketball style!</p><!--Introductory question-->
 	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started To Find Out Your Basketball Role </a> <!--button to take you to the next page-->
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	<p>THIS CODE SHOULD NOT BE USED TO DETERMINE ANY KIND OF PROFESSIONAL BASKETBALL POSITION.</p>
 
 
 <div class="page" id="one"> <!--defined the first page after the entry as class one-->
@@ -123,9 +123,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your eyes watery of itchy?</p>  <!-- changed the content of this question to question one-->
-	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">Yes</a> <!--button yes when clicked will now add 1 to allergy add  and go on to page two-->
-	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to cold add  and go on to page two-->
+        <p>Do you prefer shooting the ball into the basket?</p>  <!-- changed the content of this question to question one-->
+	<a href="#two"  onclick="shootingAdd();" class="w3-btn w3-black">Yes</a> <!--button yes when clicked will now add 1 to shooting add of shooting and go on to page two-->
+	<a href="#two"  onclick="defendingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to defending add and defending and go on to page two-->
 		
     	</div>
 	
@@ -137,9 +137,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Do you have a fever?</p>  <!--changed the content of this question to question two content as defined-->
-	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to page three-->
-	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to page three-->
+        <p>Do you prefer guarding shooters and blocking the ball?</p>  <!--changed the content of this question to question two content as defined-->
+	<a href="#three"  onclick="defendingAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to defending add  and go on to page three-->
+	<a href="#three"  onclick="shootingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to shooting add  and go on to page three-->
 
     	</div>
 	
@@ -151,37 +151,52 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Do you have a sore throat?</p>  <!--changed the content of this question to question 3 as defined-->
-	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to page four-->
-	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to page four-->
+        <p>Do you like playing close to the basket?</p>  <!--changed the content of this question to question 3 as defined-->
+	<a href="#four"  onclick="defendingAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to defending add  and go on to page four-->
+	<a href="#four"  onclick="shootingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to shooting add  and go on to page four-->
 
     	</div>
 	
 </div>
-								    
+
+
 <div class="page" id="four"> <!--defined the fourth page after page three as class four-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your symptoms seasonal or allergal?</p>  <!--changed the content of this question to question 4 as defined-->
-	<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to allergy add  and go on to page five-->
-	<a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to cold add  and go on to page five-->
+        <p>Do you like playing outside of the free throw line on the court?</p>  <!--changed the content of this question to question 4 as defined-->
+	<a href="#five"  onclick="shootingAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to shooting add  and go on to page five-->
+	<a href="#five"  onclick="defendingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to defending add  and go on to page five-->
 
     	</div>
 	
 </div>
-	
-<div class="page" id="five">
+								    
+<div class="page" id="five"> <!--defined the fifth page after page three as class five-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 5</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Have your symptoms lasted for more than 1 week?</p>  <!--changed the content of this question to question 5, one question extra was requested to be added to the app-->
-	<a href="#results"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to the final results page-->
-	<a href="#results"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to final results page-->
+        <p>When you receive the ball, do you often dribble immediately?</p>  <!--changed the content of this question to question 5 as defined-->
+	<a href="#six"  onclick="shootingAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to shooting add  and go on to page six-->
+	<a href="#six"  onclick="defendingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to defending add  and go on to page six-->
+
+    	</div>
+	
+</div>
+	
+<div class="page" id="six"> <!--defined the sixth page after page three as class six-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you often pass the ball when you receive the ball?</p>  <!--changed the content of this question to question 6, one question extra was requested to be added to the app-->
+	<a href="#results"  onclick="defendingAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to defending add  and go on to the final results page-->
+	<a href="#results"  onclick="shootingAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to shooting add  and go on to final results page-->
 
     	</div>
 
@@ -192,7 +207,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<h1>Results</h1> <!--displays Results in text in the header-->
 	</div>
 	
-	<a href="#results" onclick="getResults();" class="w3-btn w3-grey w3-round"> Click On This Button Each Time You Run the App to Find Out the Updated Results </a> <!--button resulting in the results being displayed out, with the functions-->
+	<a href="#results" onclick="getResults();" class="w3-btn w3-grey w3-round"> Click On This Button Each Time You Run the App to Find Out the Results of Whether Who You Are Mostly A Shooter or Defender! </a> <!--button resulting in the results being displayed out, with the functions-->
 
 	
 	<p id="results-section"></p>.<!--allows the results to be displayed on the page after the button is clicked-->
