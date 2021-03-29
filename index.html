@@ -6,26 +6,207 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
  
 Authors in chronological order of contribution:
-Author 1
+Tim Riedel
 Author 2
  
 Further Information:
-http://diystream.cns.utexas.edu/
-
+http://cns.utexas.edu/fri
+ 
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+ Goal of this code is to set forward a basic app about cold and allergies
 Known Issues:
-blah, blah, blah, blah
+No known issues as of now 
+https://www.w3schools.com/w3css/default.asp
+https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
-
+	
    <head> 
-      
-	   PUT YOUR OLD CODE IN HERE
-	   
-   </body>
+      <title>Hello World</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+   </head> 
+
+
+<script>
+        var allergy_count=0;
+        var cold_count = 0;
+	var alpe=0;
+	//Added variable alpe which was able to compute the percent of answers indicating allergy 
+	var colpe=0;
+	//added variable colpe which was able to compute the percent of answers indicting cold
+	var total =0;
+	//added variable total to count the amount of total responses, used in percent calculations
+	
+
+        function allergyAdd(){
+            allergy_count = allergy_count + 1;
+		//allergy count variable here is being added by one everytime allergyAdd is called
+		total++;
+		//everytime coldAdd is used, total is added by 1
+	}
+
+        function coldAdd(){
+            cold_count = cold_count + 1;
+		//cold count variable here is being added by one everytime coldAdd is called
+		total++;
+		//everytime coldAdd is used, total is added by 1
+        }
+	function getResults (){ //using getResults function in order to get the results at the end
+	var resultText = document.getElementById("results-section"); //defining resultText variable
+	alpe = (allergy_count / total) * (100); //defining alpe and calculating the percent accordingly of allergy
+	colpe = (cold_count / total) * (100);//defining colpe and calculating the percent accordingly of cold
+	resultText.innerHTML = "Probability it is allergies =" + alpe + "%"+ "<br> Probability it is a cold =" + colpe+"%"; //results are displayed in this format with percent of allergy and cold displayed in decimal form (ex 0.5 and 0.5 for 50% each), overall percent
+	}
+	function rewind (){ //function used in order to reset all the variables at the end of the program so it can be ran accurately again
+	  allergy_count=0;
+         cold_count = 0;
+	 alpe=0;
+	 colpe=0;
+	 total =0;
+
+
+	// every variable is set to 0 succesfully
+	}
+	
+
+  </script>
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Cold or Allergies?</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	 
+	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+
+<div class="page" id="one"> <!--defined the first page after the entry as class one-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1> <!--what the header presents-->
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are your eyes watery of itchy?</p>  <!-- changed the content of this question to question one-->
+	<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black">Yes</a> <!--button yes when clicked will now add 1 to allergy add  and go on to page two-->
+	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to cold add  and go on to page two-->
+		
+    	</div>
+	
+</div>
+
+<div class="page" id="two"> <!--defined the second page after page one as class two-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have a fever?</p>  <!--changed the content of this question to question two content as defined-->
+	<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to page three-->
+	<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to page three-->
+
+    	</div>
+	
+</div>		
+	
+<div class="page" id="three"><!--defined the third page after page two as page three-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have a sore throat?</p>  <!--changed the content of this question to question 3 as defined-->
+	<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to page four-->
+	<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to page four-->
+
+    	</div>
+	
+</div>
+								    
+<div class="page" id="four"> <!--defined the fourth page after page three as class four-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are your symptoms seasonal or allergal?</p>  <!--changed the content of this question to question 4 as defined-->
+	<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to allergy add  and go on to page five-->
+	<a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to cold add  and go on to page five-->
+
+    	</div>
+	
+</div>
+	
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Have your symptoms lasted for more than 1 week?</p>  <!--changed the content of this question to question 5, one question extra was requested to be added to the app-->
+	<a href="#results"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a><!--button yes when clicked will now add 1 to cold add  and go on to the final results page-->
+	<a href="#results"  onclick="allergyAdd();" class="w3-btn w3-black">No</a><!--button no when clicked will now add 1 to allergy add  and go on to final results page-->
+
+    	</div>
+
+</div>
+
+<div class="page" id="results"> <!--results class created as the next place to display the results, final page of running the app-->
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Results</h1> <!--displays Results in text in the header-->
+	</div>
+	
+	<a href="#results" onclick="getResults();" class="w3-btn w3-grey w3-round"> Click On This Button Each Time You Run the App to Find Out the Updated Results </a> <!--button resulting in the results being displayed out, with the functions-->
+
+	
+	<p id="results-section"></p>.<!--allows the results to be displayed on the page after the button is clicked-->
+ 	<a href="#content"   onclick="rewind();"class= "w3-btn w3-grey w3-round"> Home </a> <!--this is the home button which takes the app back to the home page while resetting everything, allowing the app to be run once more-->
+
+    	</div>
+	
+</div>
+						    
+								    
+
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
+
+</body>
 </html>
