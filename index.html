@@ -58,17 +58,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		//everytime dependingAdd is used, total is added by 1
         }
 	function getResults (){ //using getResults function in order to get the results at the end
-	var resultText = document.getElementById("results-section"); //defining resultText variable
+	global var resultText = document.getElementById("results-section"); //defining resultText variable
 	shoop = (shooting / total) * (100); //defining shoop and calculating the percent accordingly of shooting
 	doop = (defending / total) * (100);//defining doop and calculating the percent accordingly of defending
 	resultText.innerHTML = "Probability that you are a shooter =" + shoop + "%"+ "<br> Probability you are a defender =" + doop+"%"; //results are displayed in this format with percent of chance that person is shooter and and percent of defender displayed with overall percent
+	
 	}
 	function rewind (){ //function used in order to reset all the variables at the end of the program so it can be ran accurately again
 	  shooting=0;
-         defending = 0;
+         defending = 0; 
 	 shoop=0;
 	 doop=0;
 	 total =0;
+	resultText= "";
 
 
 	// every variable is set to 0 succesfully with the reset button
@@ -112,7 +114,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>
 	
 <div id="content" class="w3-container">
-	<script>location.reload();</script> <!--reloads the page-->
 	<p>Are you interested in basketball, but wonder what type of a player you are? Do you wonder whether you prefer to defend more or attack more? Answer a few short questions to find out your basketball style!</p><!--Introductory question-->
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started To Find Out Your Basketball Role </a> <!--button to take you to the next page-->
